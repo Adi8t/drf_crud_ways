@@ -21,6 +21,7 @@ from api_view import views as way3
 from model_api import views as way4 
 from rest_framework.routers import DefaultRouter
 from concrete_views import views as way5
+from mixins import views as way6
 
 router = DefaultRouter()
 router.register('studentdata',way4.Studentmodelviewset , basename="studentdata")
@@ -34,5 +35,7 @@ urlpatterns = [
     path('way3/<int:pk>/', way3.StudentAPI.as_view()),
     path('way5/',way5.Studentlisting.as_view()),
     path('way5/<int:pk>/',way5.Studentedit.as_view()),
+    path('way6/',way6.ListStudentapi.as_view()),
+    path('way6/<int:pk>/',way6.REadupdateview.as_view()),
     path('', include(router.urls)),
 ]
