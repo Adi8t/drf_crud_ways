@@ -20,7 +20,7 @@ from app_decor import views
 from api_view import views as way3
 from model_api import views as way4 
 from rest_framework.routers import DefaultRouter
-
+from concrete_views import views as way5
 
 router = DefaultRouter()
 router.register('studentdata',way4.Studentmodelviewset , basename="studentdata")
@@ -32,7 +32,7 @@ urlpatterns = [
     path('api/<int:pk>/', views.studentapi),
     path('way3/', way3.StudentAPI.as_view()),
     path('way3/<int:pk>/', way3.StudentAPI.as_view()),
-    path('way3/<int:pk>/', way3.StudentAPI.as_view()),
+    path('way5/',way5.Studentlisting.as_view()),
+    path('way5/<int:pk>/',way5.Studentedit.as_view()),
     path('', include(router.urls)),
-
 ]
